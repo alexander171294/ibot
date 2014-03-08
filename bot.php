@@ -1,22 +1,70 @@
 <?php if(!defined('STDIN')) die('ONLY EXECUTE COMMAND-LINE-INTERFACE');
 
-/** ThiefBot PHP 5
+/** IBOT SOCKET PHP5
  *  @designer: Alexander171294
- *  @Proyect Name: ThiefBot
+ *  @Proyect Name: PHPIBot
  *  @contact: Alexander171294@gmail.com
  *  @Status: Prototype
- *  @Date: 08/2/14  
- *  @info: proyecto desarrollado por Alexander171294
+ *  @Date: 05/11/13  
+ *  @info: proyecto desarrollado por el equipo UnderC0de++ 
  */           
-#ini_set('display_errors',false);
  
  // definimos saltos de linea
  define('NL', "\r\n");
- define('DS', "/"); // directory separator
+ define('DS', "\\"); // directory separator
  
- // requerimos la libreria basica
- require(dirname(__FILE__).DS.'libs'.DS.'stdio.php');
+ // FUNCIONES EXTENSIBLES
+/*
+ * Si es necesario cambiar la salida, solo modifcamos esta función.
+*/
+// standard out
+function std_out($string)
+{
+  echo utf8_decode(utf8_encode($string));
+}
+// standard includes
+function std_inc($file)
+{
+  require(dirname(__FILE__).'/'.$file);
+}
 
- // incluimos librerias basicas
- std_inc('systest-1.0');
- if(!sys_test()) die('>> Hasta la proxima!');
+ 
+ // datos de la conexión
+ $server = 'irc.freenode.net';
+ $port = 6667;
+
+  // incluimos el property
+  std_inc('property.php');
+  // incluimos el control de sockets
+  std_inc('sockets/interface.php');
+  std_inc('sockets/sockets.php');
+  // incluimos el control del irc
+  std_inc('irc/irc_data.php'); // canal y datos del usuario a conectarse
+  std_inc('irc/interface.php');
+  std_inc('irc/ircprotocol.php');
+  // incluimos los archivos principales del bot
+  // funciones que puede realizar el bot
+  std_inc('ibot/ibot_commands.php');
+  // lista de funciones con detalles y lista de admins por defecto
+  std_inc('ibot/ibot_data.php');
+  std_inc('ibot/interface.php');
+  std_inc('ibot/ibot.php');
+  // manejo de componentes
+  // librería standard de componentes
+  std_inc('COM/comlibInterface.php');
+  std_inc('COM/comlib.php');
+  // clase gestora de componentes válidos
+  std_inc('COM/ComLoaderInterface.php');
+  std_inc('COM/ComLoader.php');
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+// creación de objetos y llamada a función principal
+// instanciamos la clase
+$bot = new ibot();
+// iniciamos el hilo paralelo
+#$prueba->start();
+// iniciamos el proceso principal
+$bot->main($server, $port);

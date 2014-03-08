@@ -1,0 +1,8 @@
+* ADD: Component Manager
+* ADD: default function Local
+* ADD: wscript component functions (apagar pc, dejar notas en el escritorio)
+* ADD: History, upload pastebin
+* ADD: explorer, navegar por directorios del pc server del bot.
+* ADD: by Fermino, Encriptar/Desencriptar textos en multiples tipos.
+* FIX: @ quitados antes de algunos nombres.
+* ADD: Date.
