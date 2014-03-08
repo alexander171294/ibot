@@ -16,8 +16,7 @@
  
  // requerimos la libreria basica
  require(dirname(__FILE__).DS.'libs'.DS.'stdio.php');
- 
- echo 'Ingrese un caracter: ';
- 
- $entrada = std_in();
- echo 'in: '.$entrada;
+
+ // incluimos librerias basicas
+ std_inc('systest-1.0');
+ if(!sys_test()) die('>> Hasta la proxima!');

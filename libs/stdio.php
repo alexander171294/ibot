@@ -34,7 +34,7 @@ function std_in()
 function std_inc($file)
 {
 	std_out('[*] LOAD module='.$file);
-	require(dirname(__FILE__).DS.$file);
+	require(dirname(__FILE__).DS.$file.'.php');
 }
 // standard file_exists
 function std_exists($file)
