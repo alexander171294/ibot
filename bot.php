@@ -16,3 +16,8 @@
  
  // requerimos la libreria basica
  require(dirname(__FILE__).DS.'libs'.DS.'stdio.php');
+ 
+ echo 'Ingrese un caracter: ';
+ 
+ $entrada = std_in();
+ echo 'in: '.$entrada;

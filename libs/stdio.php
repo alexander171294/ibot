@@ -1,7 +1,5 @@
 <?php
 
-<?php
-
 /** IBOT SOCKET PHP5
  *  @designer: Alexander171294
 *  @Proyect Name: PHPIBot 2
@@ -27,12 +25,10 @@ function std_out($string)
 }
 
 // standard input
-function std_in($format)
+function std_in()
 {
-	$res = null;
 	$line = trim(fgets(STDIN)); // reads one line from STDIN
-	fscanf(STDIN, "$format\n", $res); // reads number from STDIN
-	return $res;
+	return $line;
 }
 // standard includes
 function std_inc($file)
